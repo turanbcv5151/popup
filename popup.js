@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Sadece 'hakkimizda.php' sayfasında popup'ı göster
-    if (window.location.pathname === 'popup/hakkimizda.php') {
+    // Sadece 'localhost/popup/hakkimizda.php' sayfasında popup'ı göster
+    if (window.location.pathname === '/popup/hakkimizda.php') {
         // Pop-up'ın HTML içeriği
         var popupHtml = `
         <div id="myPopup" class="popup">
