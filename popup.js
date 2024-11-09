@@ -1,78 +1,90 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Sadece 'hakkimizda.php' sayfasında popup'ı göster
-    if (window.location.pathname === '/popup/hakkimizda.php') {
-        // Pop-up'ın HTML içeriği
-        var popupHtml = `
-        <div id="myPopup" class="popup">
-            <div class="popup-content">
-                <span class="popup-close">&times;</span>
-                <h2>Popup Başlık</h2>
-                <p>Bu bir pop-up içeriğidir.</p>
-            </div>
-        </div>`;
+    // Pop-up'ın HTML içeriği
+    var popupHtml = `
+    <div id="myPopup" class="popup">
+        <div class="popup-content">
+            <span class="popup-close">&times;</span>
+            <h2>Popup Başlık</h2>
+            <p>Bu bir pop-up içeriğidir.</p>
+        </div>
+    </div>`;
 
-        // HTML'i sayfaya ekle
-        document.body.insertAdjacentHTML('beforeend', popupHtml);
+    // HTML'i sayfaya ekle
+    document.body.insertAdjacentHTML('beforeend', popupHtml);
 
-        // Pop-up stilini ayarla
-        var popupStyle = `
-        <style>
-            .popup {
-                display: none; /* Başlangıçta gizli */
-                position: fixed;
-                z-index: 1;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
-            }
+    // Buton HTML içeriği
+    var buttonHtml = `
+    <button id="myButton" style="position: fixed; bottom: 20px; right: 20px; padding: 10px 20px; background-color: #4CAF50; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">
+        Butona Tıkla
+    </button>`;
 
-            .popup-content {
-                background-color: white;
-                padding: 20px;
-                border-radius: 5px;
-                width: 300px;
-                margin: 15% auto;
-            }
+    // Butonu sayfaya ekle
+    document.body.insertAdjacentHTML('beforeend', buttonHtml);
 
-            .popup-close {
-                color: #aaa;
-                font-size: 28px;
-                font-weight: bold;
-                position: absolute;
-                top: 10px;
-                right: 10px;
-            }
+    // Pop-up stilini ayarla
+    var popupStyle = `
+    <style>
+        .popup {
+            display: none; /* Başlangıçta gizli */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
 
-            .popup-close:hover,
-            .popup-close:focus {
-                color: black;
-                text-decoration: none;
-                cursor: pointer;
-            }
-        </style>`;
+        .popup-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            margin: 15% auto;
+        }
 
-        // Stil bilgilerini sayfaya ekle
-        document.head.insertAdjacentHTML('beforeend', popupStyle);
+        .popup-close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
 
-        // Pop-up elementini al
-        var popup = document.getElementById('myPopup');
-        var closeBtn = document.getElementsByClassName('popup-close')[0];
+        .popup-close:hover,
+        .popup-close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>`;
 
-        // Pop-up'ı göster
-        popup.style.display = "block";
+    // Stil bilgilerini sayfaya ekle
+    document.head.insertAdjacentHTML('beforeend', popupStyle);
 
-        // Kapatma butonuna tıklama işlemi
-        closeBtn.onclick = function() {
+    // Pop-up elementini al
+    var popup = document.getElementById('myPopup');
+    var closeBtn = document.getElementsByClassName('popup-close')[0];
+
+    // Pop-up'ı göster
+    popup.style.display = "block";
+
+    // Kapatma butonuna tıklama işlemi
+    closeBtn.onclick = function() {
+        popup.style.display = "none";
+    }
+
+    // Popup dışında bir yere tıklanırsa popup'ı kapat
+    window.onclick = function(event) {
+        if (event.target == popup) {
             popup.style.display = "none";
         }
+    }
 
-        // Popup dışında bir yere tıklanırsa popup'ı kapat
-        window.onclick = function(event) {
-            if (event.target == popup) {
-                popup.style.display = "none";
-            }
-        }
+    // Butona tıklama işlemi
+    var button = document.getElementById("myButton");
+    button.onclick = function() {
+        alert("Butona tıkladınız!");
     }
 });
