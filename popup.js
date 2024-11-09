@@ -1,20 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Sadece 'hakkimizda.php' sayfasında gösterilecek popup
-    if (window.location.pathname === '/hakkimizda.php') {
-        // Popup'ın HTML içeriğini oluştur
+    // Sadece 'hakkimizda.php' sayfasında popup'ı göster
+    if (window.location.pathname === 'popup/hakkimizda.php') {
+        // Pop-up'ın HTML içeriği
         var popupHtml = `
         <div id="myPopup" class="popup">
-          <div class="popup-content">
-            <span class="popup-close">&times;</span>
-            <h2>Popup Başlık</h2>
-            <p>Bu bir pop-up içeriğidir.</p>
-          </div>
+            <div class="popup-content">
+                <span class="popup-close">&times;</span>
+                <h2>Popup Başlık</h2>
+                <p>Bu bir pop-up içeriğidir.</p>
+            </div>
         </div>`;
 
         // HTML'i sayfaya ekle
         document.body.insertAdjacentHTML('beforeend', popupHtml);
 
-        // Popup'ın stilini ayarla
+        // Pop-up stilini ayarla
         var popupStyle = `
         <style>
             .popup {
@@ -53,14 +53,14 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         </style>`;
 
-        // Stili sayfaya ekle
+        // Stil bilgilerini sayfaya ekle
         document.head.insertAdjacentHTML('beforeend', popupStyle);
 
-        // Popup elementini al
+        // Pop-up elementini al
         var popup = document.getElementById('myPopup');
         var closeBtn = document.getElementsByClassName('popup-close')[0];
 
-        // Popup'ı göster
+        // Pop-up'ı göster
         popup.style.display = "block";
 
         // Kapatma butonuna tıklama işlemi
