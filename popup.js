@@ -1,7 +1,7 @@
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     // Sadece belirli bir sayfada pop-up'ı göster
-    if (window.location.pathname === '/urun/asg-steyr-m9-a1-havali-tabanca') {
+    if (window.location.pathname === '/sayfa/hakkimizda') {
         // Popup'ın HTML içeriğini oluştur
         var popupHtml = `
         <div id="myPopup" class="popup">
